@@ -19,12 +19,14 @@ OLLAMA_MODEL_NAME = "phi3:mini" # Specify the Ollama model
 def load_llm():
     """
     Loads the specified Ollama model.
-    No manual download is needed; Ollama handles it.
+    Using 'num_gpu=-1' attempts to offload all layers to the GPU.
+    Requires a working Ollama server installation with GPU support.
     """
-    print(f"Loading Ollama model: {OLLAMA_MODEL_NAME}...")
+    print(f"Loading Ollama model: {OLLAMA_MODEL_NAME} with GPU offloading...")
     llm = Ollama(
         model=OLLAMA_MODEL_NAME,
         temperature=0.1, # Lower temperature for more deterministic, factual answers
+        num_gpu=-1 # CHANGE 3: Explicitly enable GPU offloading for Ollama
     )
     print("LLM loaded successfully.")
     return llm
@@ -37,7 +39,8 @@ def get_embedding_model():
     print("Loading embedding model...")
     embeddings = HuggingFaceEmbeddings(
         model_name=EMBEDDING_MODEL_NAME,
-        model_kwargs={'device': 'cpu'},
+        # CHANGE 2: Use 'cuda' for GPU
+        model_kwargs={'device': 'cuda'},
         encode_kwargs={'normalize_embeddings': True}
     )
     print("Embedding model loaded.")
@@ -126,4 +129,5 @@ if __name__ == "__main__":
             
         except KeyboardInterrupt:
             print("\nAssistant: Goodbye!")
+
             break

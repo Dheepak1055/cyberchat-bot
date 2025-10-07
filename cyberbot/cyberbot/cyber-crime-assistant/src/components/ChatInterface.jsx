@@ -1,5 +1,7 @@
 import { useEffect, useRef } from 'react';
 import './ChatInterface.css';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 const ChatInterface = ({ messages, onSelectOption, currentOptions }) => {
   const chatEndRef = useRef(null);
@@ -14,7 +16,10 @@ const ChatInterface = ({ messages, onSelectOption, currentOptions }) => {
         {messages.map((msg, index) => (
           <div key={index}>
             <div className={`message-bubble ${msg.sender}`}>
-              <p>{msg.text}</p>
+              {/* This is the corrected part */}
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                {msg.text}
+              </ReactMarkdown>
             </div>
             {msg.templateContent && (
               <pre className="template-box">{msg.templateContent}</pre>

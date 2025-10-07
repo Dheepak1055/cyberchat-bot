@@ -70,7 +70,8 @@ def split_documents(documents):
 def get_embedding_model():
     """Loads the embedding model."""
     model_name = "BAAI/bge-m3"
-    model_kwargs = {'device': 'cpu'}
+    # CHANGE 1: Use 'cuda' for GPU, or keep 'cpu' if a GPU is not present/available.
+    model_kwargs = {'device': 'cuda'}
     encode_kwargs = {'normalize_embeddings': True}
     
     embeddings = HuggingFaceEmbeddings(
@@ -83,3 +84,4 @@ def get_embedding_model():
 
 if __name__ == "__main__":
     main()
+

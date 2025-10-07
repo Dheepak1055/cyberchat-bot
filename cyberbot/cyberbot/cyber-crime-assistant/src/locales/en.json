@@ -1,0 +1,24 @@
+{
+  "translation": {
+    "app_title": "Cyber Crime Assistant",
+    "case_type_query": "Good Day Officer, What case type are you handling?",
+    "financial_fraud": "Financial Fraud",
+    "social_media_crime": "Social Media Crime",
+    "online_harassment": "Online Harassment",
+    "cyber_stalking": "Cyber Stalking",
+    "data_theft": "Data Theft / Hacking",
+    "start_new_case": "New Case",
+    "end_chat": "End Chat",
+    "evidence_checklist_title": "Evidence Checklist 📝",
+    "case_notes_title": "Case Notes 🗒️",
+    "no_checklist_items": "No checklist items for this step.",
+    "upi_fraud_query": "Initial steps for UPI Fraud: Collect UPI ID & transaction details. Get screenshots of payment. File an FIR. Have you completed these steps?",
+    "yes_completed": "Yes, completed",
+    "need_guidance": "Need more guidance",
+    "continue": "Continue",
+    "case_in_progress": "Case in progress...",
+    "collect_upi_details": "Collect UPI ID & Transaction Details",
+    "obtain_screenshots": "Obtain Payment Screenshots",
+    "file_fir": "File an FIR"
+  }
+}

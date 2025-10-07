@@ -1,0 +1,188 @@
+{
+  "start": {
+    "query": "case_type_query",
+    "options": [
+      { "label": "financial_fraud", "value": "Financial Fraud", "nextStep": "financialFraudStart" },
+      { "label": "social_media_crime", "value": "Social Media Crime", "nextStep": "socialMediaStart" },
+      { "label": "online_harassment", "value": "Online Harassment", "nextStep": "onlineHarassmentStart" },
+      { "label": "cyber_stalking", "value": "Cyber Stalking", "nextStep": "cyberStalkingStart" },
+      { "label": "data_theft", "value": "Data Theft / Hacking", "nextStep": "dataTheftStart" },
+      { "label": "other_queries", "value": "Other", "nextStep": "aiChatStart" }
+    ]
+  },
+  "aiChatStart": {
+    "query": "You can now ask me questions about the investigation manuals.",
+    "options": []
+  },
+  "financialFraudStart": {
+    "query": "Please specify the type of financial fraud.",
+    "options": [
+      { "label": "UPI Fraud", "value": "UPI Fraud", "nextStep": "upiFraudStep1" },
+      { "label": "ATM/Card Fraud", "value": "ATM/Card Fraud", "nextStep": "atmFraudStep1" },
+      { "label": "Online Shopping Fraud", "value": "Online Shopping Fraud", "nextStep": "onlineShoppingStep1" },
+      { "label": "Phishing/Vishing", "value": "Phishing/Vishing", "nextStep": "phishingStep1" }
+    ]
+  },
+  "upiFraudStep1": {
+    "query": "upi_fraud_query",
+    "checklist": [
+      "collect_upi_details",
+      "obtain_screenshots",
+      "file_fir"
+    ],
+    "options": [
+      { "label": "yes_completed", "value": "Yes, completed", "nextStep": "upiFraudStep2" },
+      { "label": "need_guidance", "value": "Need more guidance", "nextStep": "upiFraudGuidance" }
+    ]
+  },
+  "upiFraudGuidance": {
+    "query": "To file a cyber financial fraud FIR, please ensure you have an official bank statement and a detailed complaint letter. If you need to trace the money, you must contact the bank's nodal officer with the FIR.",
+    "options": [
+      { "label": "continue", "value": "Continue", "nextStep": "upiFraudStep2" }
+    ]
+  },
+  "upiFraudStep2": {
+    "query": "The next step is to prepare for tracing the money. You need to obtain a `65-B Certificate` for all digital evidence.",
+    "checklist": [
+      "Obtain a 65-B Certificate for digital evidence",
+      "Prepare a requisition letter for the bank"
+    ],
+    "options": [
+      { "label": "case_in_progress", "value": "In Progress", "nextStep": null },
+      { "label": "start_new_case", "value": "New Case", "nextStep": "start" }
+    ]
+  },
+  "atmFraudStep1": {
+    "query": "For ATM/Card Fraud, the primary steps are to collect the victim's bank statements showing the fraudulent transactions. Also, get the CCTV footage from the ATM location if available.",
+    "checklist": [
+      "Collect bank statements for fraudulent transactions",
+      "Obtain ATM CCTV footage (if available)"
+    ],
+    "options": [
+      { "label": "Need a template for bank request", "value": "Template", "nextStep": "bankTemplate" },
+      { "label": "start_new_case", "value": "New Case", "nextStep": "start" }
+    ]
+  },
+  "onlineShoppingStep1": {
+    "query": "For Online Shopping Fraud, you need to collect the victim's order details, payment screenshots, and any communication with the seller. A template for requesting payment details from the platform is available.",
+    "checklist": [
+      "Collect order details and screenshots",
+      "Obtain communication records with seller/platform"
+    ],
+    "options": [
+      { "label": "Get template for payment request", "value": "Template", "nextStep": "onlineShoppingTemplate" },
+      { "label": "start_new_case", "value": "New Case", "nextStep": "start" }
+    ]
+  },
+  "phishingStep1": {
+    "query": "For Phishing/Vishing, collect the fraudulent email or SMS, including the headers and sender details. Also, get the victim's bank statements if financial loss occurred.",
+    "checklist": [
+      "Collect fraudulent email/SMS with headers",
+      "Obtain bank statements"
+    ],
+    "options": [
+      { "label": "Get template for cybercrime complaint", "value": "Template", "nextStep": "phishingTemplate" },
+      { "label": "start_new_case", "value": "New Case", "nextStep": "start" }
+    ]
+  },
+  "socialMediaStart": {
+    "query": "Initial steps for Social Media Crime: 隼 Get a full profile URL of the accused. 隼 Take screenshots of all posts/comments. 隼 Note down the date and time of each incident. Do you need help with this?",
+    "checklist": [
+      "Obtain Social Media Profile URL",
+      "Get Screenshots of all relevant content",
+      "Note Date and Time of Incident"
+    ],
+    "options": [
+      { "label": "Yes, I have collected this", "value": "Collected", "nextStep": "socialMediaStep2" },
+      { "label": "Need help", "value": "Need help", "nextStep": "socialMediaGuidance" }
+    ]
+  },
+  "socialMediaGuidance": {
+    "query": "The `65-B Certificate` is mandatory for all digital evidence like screenshots to be admissible in court. Make sure it is issued by the officer in charge.",
+    "options": [
+      { "label": "continue", "value": "Continue", "nextStep": "socialMediaStep2" }
+    ]
+  },
+  "socialMediaStep2": {
+    "query": "The next steps are to contact the social media platform's legal team with a valid search warrant and a request for subscriber information. Do you need a template for this?",
+    "checklist": [
+      "Prepare a search warrant for the social media platform",
+      "Get an IPDR from the service provider"
+    ],
+    "options": [
+      { "label": "Yes, I need a template", "value": "Template", "nextStep": "socialMediaTemplate" },
+      { "label": "case_in_progress", "value": "In Progress", "nextStep": null }
+    ]
+  },
+  "onlineHarassmentStart": {
+    "query": "For online harassment cases, you need to collect all digital communication records, including screenshots of chats, emails, and any posts. Additionally, note down the date and time of each incident.",
+    "checklist": [
+      "Collect all digital communication records (chat logs, emails, etc.)",
+      "Get screenshots of all relevant content",
+      "Note the date and time of each incident"
+    ],
+    "options": [
+      { "label": "continue", "value": "Continue", "nextStep": "socialMediaStep2" }
+    ]
+  },
+  "cyberStalkingStart": {
+    "query": "Cyber stalking cases require a detailed log of all unwanted contact, including phone numbers, social media accounts, and email addresses. You should also file an FIR with all details and any physical evidence.",
+    "checklist": [
+      "Document a detailed log of all unwanted contact",
+      "File an FIR with all details"
+    ],
+    "options": [
+      { "label": "continue", "value": "Continue", "nextStep": "socialMediaStep2" }
+    ]
+  },
+  "dataTheftStart": {
+    "query": "For data theft, the primary goal is to identify the source of the breach. You should immediately secure the affected systems and collect forensic data.",
+    "checklist": [
+      "Secure the affected system",
+      "Collect all digital forensic evidence",
+      "Identify the source of the breach"
+    ],
+    "options": [
+      { "label": "Request for technical assistance", "value": "Technical Assistance", "nextStep": "technicalAssistance" }
+    ]
+  },
+  "technicalAssistance": {
+    "query": "A technical expert can help you analyze server logs, network traffic, and malware. Please prepare a formal request for the forensic team.",
+    "options": [
+      { "label": "case_in_progress", "value": "In Progress", "nextStep": null },
+      { "label": "start_new_case", "value": "New Case", "nextStep": "start" }
+    ]
+  },
+  "socialMediaTemplate": {
+    "query": "Here is a sample template for a search warrant for social media evidence:",
+    "templateContent": "To,\nThe Hon窶冀le Court,\n\n**Sub: Request for issuance of search warrant under CrPC for digital evidence.**\n\nRespected Sir/Madam,\n\nThis application is filed under the provisions of the Criminal Procedure Code, 1973, by the undersigned Investigating Officer (I.O.) in connection with FIR No. [FIR Number] registered at [Police Station Name] Police Station under relevant sections of the IPC and IT Act. The details of the case are as follows:\n\n1.  **Case Summary:** [Briefly describe the cybercrime and the individuals involved, including the suspect's name and the crime committed, e.g., online harassment, cyber stalking, etc.]\n\n2.  **Evidence Sought:** The following digital evidence is necessary for the purpose of a proper investigation:\n    - User logs, account information, and private communications from the following social media accounts/online platforms: [List social media accounts/platforms, e.g., Facebook URL, Instagram profile, etc.]\n    - IPDR (Internet Protocol Detail Record) for the user at the time of the incident.\n\n3.  **Reason for Request:** The above-mentioned digital evidence is crucial to identify the accused, establish a clear timeline of the crime, and gather admissible evidence.\n\nIt is, therefore, prayed that this Hon'ble Court may be pleased to issue a search warrant to the concerned authorities/service providers to obtain the above-mentioned evidence.\n\nThank you.\n\n**Investigating Officer**\n[Name]\n[Designation]\n[Police Station]\n[Contact Details]",
+    "options": [
+      { "label": "start_new_case", "value": "New Case", "nextStep": "start" },
+      { "label": "end_chat", "value": "End Chat", "nextStep": null }
+    ]
+  },
+  "bankTemplate": {
+    "query": "Here is a sample template for a bank requisition letter for account details:",
+    "templateContent": "To,\nThe Nodal Officer,\n[Bank Name],\n[Bank Address]\n\n**Sub: Requisition for bank account details and transaction history - FIR No. [FIR Number]**\n\nRespected Sir/Madam,\n\nThis letter is issued in connection with an ongoing investigation into FIR No. [FIR Number] registered at [Police Station Name] Police Station under relevant sections of the IPC and IT Act. The details of the case are as follows:\n\n1.  **Case Summary:** [Briefly describe the financial fraud, e.g., ATM fraud, card cloning, etc.]\n\n2.  **Information Sought:** Please provide the following details for the bank account(s) and/or UPI ID(s) listed below:\n    - Complete KYC details of the account holder(s)\n    - All transaction history for the period from [Start Date] to [End Date], including UPI, IMPS, and other electronic transfers.\n    - The beneficiary account details for all fraudulent transactions.\n\n3.  **Bank Account(s) / UPI ID(s):** [List the bank account numbers or UPI IDs relevant to the case]\n\nIt is requested that this information be provided at the earliest to aid in the ongoing investigation.\n\nThank you.\n\n**Investigating Officer**\n[Name]\n[Designation]\n[Police Station]\n[Contact Details]",
+    "options": [
+      { "label": "start_new_case", "value": "New Case", "nextStep": "start" },
+      { "label": "end_chat", "value": "End Chat", "nextStep": null }
+    ]
+  },
+  "onlineShoppingTemplate": {
+    "query": "Here is a sample template for a request to an online shopping platform:",
+    "templateContent": "To,\nThe Legal Department,\n[Online Shopping Platform],\n[Platform Address]\n\n**Sub: Request for order and payment details - FIR No. [FIR Number]**\n\nRespected Sir/Madam,\n\nThis letter is issued in connection with an ongoing investigation into FIR No. [FIR Number] registered at [Police Station Name] Police Station. The details of the case are as follows:\n\n1.  **Case Summary:** [Briefly describe the online shopping fraud, e.g., non-delivery of product, fake product, etc.]\n\n2.  **Information Sought:** Please provide the following details related to the order and the seller:\n    - Complete order details for Order ID: [Order ID]\n    - Payment details, including the bank account/UPI ID of the seller.\n    - KYC and contact details of the seller account.\n    - All communication logs between the buyer and the seller.\n\n3.  **Order ID:** [Order ID]\n\nIt is requested that this information be provided at the earliest to aid in the ongoing investigation.\n\nThank you.\n\n**Investigating Officer**\n[Name]\n[Designation]\n[Police Station]\n[Contact Details]",
+    "options": [
+      { "label": "start_new_case", "value": "New Case", "nextStep": "start" },
+      { "label": "end_chat", "value": "End Chat", "nextStep": null }
+    ]
+  },
+  "phishingTemplate": {
+    "query": "Here is a sample template for a complaint letter regarding phishing/vishing:",
+    "templateContent": "To,\nThe Station House Officer,\n[Police Station Name],\n[Police Station Address]\n\n**Sub: Complaint regarding phishing/vishing fraud - Request for FIR**\n\nRespected Sir/Madam,\n\nI am writing to file a formal complaint regarding a recent cybercrime incident. The details are as follows:\n\n1.  **Victim Details:**\n    - Name: [Victim's Name]\n    - Address: [Victim's Address]\n    - Contact No: [Victim's Contact Number]\n\n2.  **Incident Details:**\n    - Date and Time: [Date and Time of Incident]\n    - Modus Operandi: [Explain how the fraud was committed, e.g., received a fake email, a deceptive phone call asking for OTP, etc.]\n    - Fraudulent Source: [Email address, phone number, website URL of the fraudster]\n\n3.  **Financial Loss:** A total of Rs. [Amount] was fraudulently debited from my bank account. The fraudulent transaction details are attached with this complaint.\n\nI have attached all relevant screenshots, a copy of my bank statement, and any other supporting documents. I request you to register an FIR and take the necessary legal action to apprehend the culprits and recover the lost funds.\n\nThank you.\n\n**Complainant**\n[Victim's Name]\n[Victim's Signature]\n[Date]\n\n**Supporting Documents Attached:**\n1. Copy of bank statement\n2. Screenshots of the fraudulent communication (email/SMS)\n3. Any other relevant evidence",
+    "options": [
+      { "label": "start_new_case", "value": "New Case", "nextStep": "start" },
+      { "label": "end_chat", "value": "End Chat", "nextStep": null }
+    ]
+  }
+}

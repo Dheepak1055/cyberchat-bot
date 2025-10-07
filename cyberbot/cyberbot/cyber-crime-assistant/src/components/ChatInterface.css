@@ -1,0 +1,76 @@
+.chat-interface {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  overflow-y: auto; /* This enables the scrollbar */
+}
+.message-list {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.message-bubble {
+  max-width: 80%;
+  padding: 10px 15px;
+  border-radius: 20px;
+  margin: 5px;
+  word-wrap: break-word;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.message-bubble.bot {
+  background-color: #e6f3ff;
+  color: #333;
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+}
+
+.message-bubble.officer {
+  background-color: #4CAF50;
+  color: white;
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+}
+
+.options-container {
+  /* This is the key change to fix the button layout */
+  display: flex;
+  flex-wrap: wrap; /* Allows buttons to wrap to a new line */
+  justify-content: center; /* Centers buttons horizontally */
+  margin-top: 10px;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+}
+
+.option-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 20px;
+  margin: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  min-width: 150px;
+}
+
+.option-button:hover {
+  background-color: #0056b3;
+}
+
+.template-box {
+  background-color: #f0f0f0;
+  border-left: 4px solid #004d40;
+  padding: 15px;
+  margin: 10px 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-family: monospace;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  overflow-x: auto;
+}
